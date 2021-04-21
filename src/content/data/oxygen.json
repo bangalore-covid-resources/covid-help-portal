@@ -1,0 +1,14 @@
+{
+  "providers": [
+    {
+      "name": "Govt of Karnataka",
+      "contact": "1912",
+      "status": "Verified"
+    },
+    {
+      "name": "Prashanth Nagaraj",
+      "contact": "123456",
+      "status": "Not verified"
+    }
+  ]
+}
