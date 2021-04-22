@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
 import APPLICATION_URL from "../../constants/application-routes";
 
-function HeaderPage() {
+function Header() {
   return (
     <div>
+      <NavLink to={APPLICATION_URL.HOME} activeClassName="active">
+        Home
+      </NavLink>
       <NavLink to={APPLICATION_URL.OXYGEN} activeClassName="active">
         Oxygen
       </NavLink>
@@ -23,4 +26,4 @@ function HeaderPage() {
   );
 }
 
-export default HeaderPage;
+export default Header;

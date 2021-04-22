@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 
-import HeaderPage from "./components/main/header-page";
-import FooterPage from "./components/main/footer-page";
+import Header from "./components/main/header";
+import Footer from "./components/main/footer";
 import RouterConfig from "./router/routerConfig";
 
 import "./content/styles/App.css";
@@ -10,9 +10,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <HeaderPage />
+        <Header />
         <RouterConfig />
-        <FooterPage />
+        <Footer />
       </div>
     </Router>
   );

@@ -3,11 +3,17 @@
     {
       "name": "Govt of Karnataka",
       "contact": "1912",
+      "alternateContact": "1234",
+      "address": "Bengaluru",
+      "deposit": "5000",
       "status": "Verified"
     },
     {
-      "name": "Prashanth Nagaraj",
+      "name": "Genuine provider",
       "contact": "123456",
+      "alternateContact": "1234",
+      "address": "Bengaluru",
+      "deposit": "5000",
       "status": "Not verified"
     }
   ]

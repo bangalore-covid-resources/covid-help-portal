@@ -1,0 +1,18 @@
+{
+  "providers": [
+    {
+      "name": "Govt of Karnataka",
+      "contact": "1912",
+      "alternateContact": "1234",
+      "bloodGroup": "A+",
+      "status": "Verified"
+    },
+    {
+      "name": "Genuine provider",
+      "contact": "123456",
+      "alternateContact": "1234",
+      "bloodGroup": "A+",
+      "status": "Not verified"
+    }
+  ]
+}
