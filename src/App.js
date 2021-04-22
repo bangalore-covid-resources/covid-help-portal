@@ -4,7 +4,7 @@ import Header from "./components/main/header";
 import Footer from "./components/main/footer";
 import RouterConfig from "./router/routerConfig";
 
-import "./content/styles/App.css";
+import "./content/styles/App.scss";
 
 function App() {
   return (
