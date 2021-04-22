@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/covid-help-portal/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/covid-help-portal/static/js/main.f88b5720.chunk.js",
-    "main.js.map": "/covid-help-portal/static/js/main.f88b5720.chunk.js.map",
-    "runtime-main.js": "/covid-help-portal/static/js/runtime-main.4049c914.js",
-    "runtime-main.js.map": "/covid-help-portal/static/js/runtime-main.4049c914.js.map",
-    "static/js/2.e0e4c467.chunk.js": "/covid-help-portal/static/js/2.e0e4c467.chunk.js",
-    "static/js/2.e0e4c467.chunk.js.map": "/covid-help-portal/static/js/2.e0e4c467.chunk.js.map",
-    "static/js/3.9c3a9d5e.chunk.js": "/covid-help-portal/static/js/3.9c3a9d5e.chunk.js",
-    "static/js/3.9c3a9d5e.chunk.js.map": "/covid-help-portal/static/js/3.9c3a9d5e.chunk.js.map",
+    "main.css": "/covid-help-portal/static/css/main.2f498e87.chunk.css",
+    "main.js": "/covid-help-portal/static/js/main.da50b1c5.chunk.js",
+    "main.js.map": "/covid-help-portal/static/js/main.da50b1c5.chunk.js.map",
+    "runtime-main.js": "/covid-help-portal/static/js/runtime-main.ddc1d518.js",
+    "runtime-main.js.map": "/covid-help-portal/static/js/runtime-main.ddc1d518.js.map",
+    "static/js/2.6d3cd453.chunk.js": "/covid-help-portal/static/js/2.6d3cd453.chunk.js",
+    "static/js/2.6d3cd453.chunk.js.map": "/covid-help-portal/static/js/2.6d3cd453.chunk.js.map",
+    "static/js/3.9ce286fc.chunk.js": "/covid-help-portal/static/js/3.9ce286fc.chunk.js",
+    "static/js/3.9ce286fc.chunk.js.map": "/covid-help-portal/static/js/3.9ce286fc.chunk.js.map",
     "index.html": "/covid-help-portal/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/covid-help-portal/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.e0e4c467.chunk.js.LICENSE.txt": "/covid-help-portal/static/js/2.e0e4c467.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/covid-help-portal/static/media/logo.6ce24c58.svg"
+    "static/css/main.2f498e87.chunk.css.map": "/covid-help-portal/static/css/main.2f498e87.chunk.css.map",
+    "static/js/2.6d3cd453.chunk.js.LICENSE.txt": "/covid-help-portal/static/js/2.6d3cd453.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4049c914.js",
-    "static/js/2.e0e4c467.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.f88b5720.chunk.js"
+    "static/js/runtime-main.ddc1d518.js",
+    "static/js/2.6d3cd453.chunk.js",
+    "static/css/main.2f498e87.chunk.css",
+    "static/js/main.da50b1c5.chunk.js"
   ]
 }
