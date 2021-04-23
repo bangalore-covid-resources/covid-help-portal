@@ -1,20 +1,52 @@
 {
   "providers": [
     {
-      "name": "Govt of Karnataka",
-      "contact": "1912",
-      "alternateContact": "1234",
-      "address": "Bengaluru",
-      "deposit": "5000",
+      "location": "Bangalore",
+      "name": "Dr KK Mohammed Gayasuddin Sab",
+      "contact": "9845333356",
+      "alternateContacts": ["9945333356", "+91 80 41463356"],
+      "address": "#4 6th Cross LalBagh Fort Road Dodda Mavalli Bangalore 560004",
+      "deposit": "",
+      "charge": "",
+      "availability": "",
+      "otherDetails": "",
       "status": "Verified"
     },
     {
-      "name": "Genuine provider",
-      "contact": "123456",
-      "alternateContact": "1234",
-      "address": "Bengaluru",
+      "location": "Bangalore",
+      "name": "OXY HELP Crisis Management Team",
+      "contact": "9945500113",
+      "alternateContacts": [],
+      "address": "JC Nagar",
+      "deposit": "5000-8000",
+      "charge": "",
+      "availability": "",
+      "otherDetails": "Needs Docter Prescription and Deposit is Refundable",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Thanisandra United Forum",
+      "contact": "9686871337",
+      "alternateContacts": ["9341211648", "9341884200", "9141613381"],
+      "address": "Thanisandra",
       "deposit": "5000",
-      "status": "Not verified"
+      "charge": "",
+      "availability": "",
+      "otherDetails": "Free for poor or Thanisandra localities.Needs ID Proof and Doctor Prescription",
+      "status": "In Progress"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Sports365",
+      "contact": "9986966909",
+      "alternateContacts": ["6304498317"],
+      "address": "",
+      "deposit": "",
+      "charge": "",
+      "availability": "",
+      "otherDetails": "Contact Person: Ashish Bhiwani",
+      "status": "Unverified"
     }
   ]
 }

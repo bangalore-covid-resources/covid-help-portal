@@ -5,3 +5,11 @@ export const HELP_CATEGORY = {
   OXYGEN: "oxygen",
   PLASMA: "plasma",
 };
+
+export const PROVIDER_STATUS = {
+  VERIFIED: "Verified",
+  UNVERIFIED: "Unverified",
+  INPROGRESS: "In Progress",
+};
+
+export const NOT_AVAILABLE = "Unknown";
