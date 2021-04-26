@@ -1,10 +1,12 @@
+export const BASE = "/covid-help-portal";
+
 const APPLICATION_URL = {
-  HOME: "/",
-  OXYGEN: "/oxygen",
-  AMBULANCE: "/ambulance",
-  PLASMA: "/plasma",
-  REMDESIVIR: "/remdesivir",
-  MEALS: "/meals",
+  HOME: `${BASE}/`,
+  OXYGEN: `${BASE}/oxygen`,
+  AMBULANCE: `${BASE}/ambulance`,
+  PLASMA: `${BASE}/plasma`,
+  REMDESIVIR: `${BASE}/remdesivir`,
+  MEALS: `${BASE}/meals`,
 };
 
 export default APPLICATION_URL;
