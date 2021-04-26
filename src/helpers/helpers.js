@@ -5,23 +5,23 @@ const helpers = {
     return value?.length > 0 ? value : NOT_AVAILABLE;
   },
 
-  getStatusBadgeClass(status) {
-    let statusBadge = "";
+  getStatusBadgeVariant(status) {
+    let variant = "";
     switch (status) {
       case PROVIDER_STATUS.UNVERIFIED:
-        statusBadge = "text-white bg-danger";
+        variant = "danger";
         break;
       case PROVIDER_STATUS.VERIFIED:
-        statusBadge = "text-white bg-success";
+        variant = "success";
         break;
       case PROVIDER_STATUS.INPROGRESS:
-        statusBadge = "bg-warning";
+        variant = "warning";
         break;
       default:
-        statusBadge = "text-white bg-success";
+        variant = "success";
         break;
     }
-    return statusBadge;
+    return variant;
   },
 };
 

@@ -1,18 +1,154 @@
 {
   "providers": [
     {
-      "name": "Govt of Karnataka",
-      "contact": "1912",
-      "alternateContact": "1234",
-      "address": "Bengaluru",
-      "status": "Verified"
+      "location": "Bangalore",
+      "name": "Yeshaswini Ambulance",
+      "providerType": "Private",
+      "contact": "9845083398",
+      "alternateContacts": ["9606308387", "9741555508"],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
     },
     {
-      "name": "Genuine provider",
-      "contact": "123456",
-      "alternateContact": "1234",
-      "address": "Bengaluru",
-      "status": "Not verified"
+      "location": "Bangalore",
+      "name": "Vishwannadh Ambulance",
+      "providerType": "Private",
+      "contact": "9845734411",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Chaithanya Ambulance",
+      "providerType": "Private",
+      "contact": "9152546287",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Shabreesha Ambulance",
+      "providerType": "Private",
+      "contact": "9152129830",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Vijayshree Ambulance",
+      "providerType": "Private",
+      "contact": "8095976797",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Pooja Ambulance",
+      "providerType": "Private",
+      "contact": "9663632339",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Balaji Ambulance",
+      "providerType": "Private",
+      "contact": "9152473696",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Nagaraju Ambulance",
+      "providerType": "Private",
+      "contact": "9972928241",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Suresh Ambulance",
+      "providerType": "Private",
+      "contact": "9380676231",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Deekshith Ambulance",
+      "providerType": "Private",
+      "contact": "9611858208",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "Listed by BBMP",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Chandru Ambulance",
+      "providerType": "Private",
+      "contact": "8546850551",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "Listed by BBMP",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Krishnamurthi Ambulance",
+      "providerType": "Private",
+      "contact": "8970063325",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "Listed by BBMP",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Shivaswamy TT",
+      "providerType": "Private",
+      "contact": "7259376968",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "Listed by BBMP",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Srinivas TT",
+      "providerType": "Private",
+      "contact": "9110694268",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "Listed by BBMP",
+      "status": "Unverified"
+    },
+    {
+      "location": "Bangalore",
+      "name": "Yogesh TT",
+      "providerType": "Private",
+      "contact": "9972938595",
+      "alternateContacts": [],
+      "cost": "",
+      "otherDetails": "Listed by BBMP",
+      "status": "Unverified"
     }
   ]
 }

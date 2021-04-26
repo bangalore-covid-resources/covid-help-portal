@@ -10,7 +10,7 @@
       "charge": "",
       "availability": "",
       "otherDetails": "",
-      "status": "Verified"
+      "status": "Unverified"
     },
     {
       "location": "Bangalore",
@@ -34,7 +34,7 @@
       "charge": "",
       "availability": "",
       "otherDetails": "Free for poor or Thanisandra localities.Needs ID Proof and Doctor Prescription",
-      "status": "In Progress"
+      "status": "Unverified"
     },
     {
       "location": "Bangalore",

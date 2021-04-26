@@ -1,17 +1,16 @@
 {
   "medicines": [
     {
-      "name": "Remidisvir",
+      "name": "Remdesivir",
       "providers": [
         {
-          "name": "Govt of Karnataka",
-          "contact": "1912",
-          "status": "Verified"
-        },
-        {
-          "name": "Genuine provider",
-          "contact": "123456",
-          "status": "Not verified"
+          "name": "Mylan Healthcare",
+          "location": "Bangalore",
+          "contact": "7829980066",
+          "alternateContacts": [],
+          "availability": "",
+          "otherDetails": "",
+          "status": "Unverified"
         }
       ]
     }

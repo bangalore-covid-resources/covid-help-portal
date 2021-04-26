@@ -1,174 +1,143 @@
-import { useLocation } from "react-router";
-import { HELP_CATEGORY } from "../../constants/constants";
+import { Row, Col, Container, Badge } from "react-bootstrap";
+
+import { HELP_CATEGORY, NOT_AVAILABLE } from "../../constants/constants";
 import helpers from "../../helpers/helpers";
 
-function renderOxygenDetails(provider) {
-  return (
-    <div class="card mb-3" style={{ width: "50%" }}>
-      <div class="card-header text-white bg-info">{provider.name}</div>
-      <div class="card-body">
-        <div className="row card-text">
-          <div className="col-sm-6">
-            <label>Location:</label>
-          </div>
-          <div className="col-sm-6">
-            <p>{provider.location}</p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-6">
-            <label>Contact:</label>
-          </div>
-          <div className="col-sm-6">
-            <p>{provider.contact}</p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-6">
-            <label>Alternate Contact:</label>
-          </div>
-          <div className="col-sm-6">
-            {provider.alternateContact?.map((ac) => {
-              return <p>{ac}</p>;
-            })}
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-6">
-            <label>Address:</label>
-          </div>
-          <div className="col-sm-6">
-            <p>{helpers.getStringValue(provider.address)}</p>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <label>Deposit:</label>
-        </div>
-        <div className="col-sm-6">
-          <p>{helpers.getStringValue(provider.deposit)}</p>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <label>Charge:</label>
-        </div>
-        <div className="col-sm-6">
-          <p>{helpers.getStringValue(provider.charge)}</p>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <label>Availability:</label>
-        </div>
-        <div className="col-sm-6">
-          <p>{helpers.getStringValue(provider.availability)}</p>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <label>Other Details:</label>
-        </div>
-        <div className="col-sm-6">
-          <p>{helpers.getStringValue(provider.otherDetails)}</p>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-6">
-          <label>Status:</label>
-        </div>
-        <div className="col-sm-6">
-          <p>{provider.status}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+function HelpDetails(props) {
+  const { category, provider } = props;
 
-function renderAmbulanceDetails(provider) {
-  return (
-    <div>
-      <label>Provider Name:</label>
-      <h1>{provider.name}</h1>
+  const renderDetailRow = (title, value) => {
+    return (
+      <Row>
+        <Col>
+          <label className="font-weight-bold">{title}:</label>
+        </Col>
+        <Col>
+          <p>{helpers.getStringValue(value)}</p>
+        </Col>
+      </Row>
+    );
+  };
 
-      <label>Contact:</label>
-      <h1>{provider.contact}</h1>
+  const renderDetailArrayRow = (title, value) => {
+    return (
+      <Row>
+        <Col>
+          <label className="font-weight-bold">{title}:</label>
+        </Col>
+        <Col>
+          <p>
+            {value?.length === 0 && NOT_AVAILABLE}
+            {value?.length !== 0 &&
+              value?.map((v) => {
+                return (
+                  <div>
+                    {v}
+                    <br />
+                  </div>
+                );
+              })}
+          </p>
+        </Col>
+      </Row>
+    );
+  };
 
-      <label>Alternate Contact:</label>
-      <h1>{provider.alternateContact}</h1>
+  const renderStatusBadge = (status) => {
+    return (
+      <Row>
+        <Col>
+          {" "}
+          <label className="font-weight-bold">Status:</label>
+        </Col>
+        <Col>
+          <Badge variant={helpers.getStatusBadgeVariant(status)}>
+            {status}
+          </Badge>
+        </Col>
+      </Row>
+    );
+  };
 
-      <label>Address:</label>
-      <h1>{provider.address}</h1>
+  const renderOxygenDetails = () => {
+    return (
+      <Container className="text-left">
+        {renderDetailRow("Location", provider.location)}
+        {renderDetailRow("Contact", provider.contact)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Address", provider.address)}
+        {renderDetailRow("Deposit", provider.deposit)}
+        {renderDetailRow("Charge", provider.charge)}
+        {renderDetailRow("Availability", provider.availability)}
+        {renderDetailRow("Other details", provider.otherDetails)}
+        {renderStatusBadge(provider.status)}
+      </Container>
+    );
+  };
 
-      <label>Status:</label>
-      <h1>{provider.status}</h1>
-    </div>
-  );
-}
+  const renderAmbulanceDetails = () => {
+    return (
+      <Container className="text-left">
+        {renderDetailRow("Location", provider.location)}
+        {renderDetailRow("Contact", provider.contact)}
+        {renderDetailRow("Provider Type", provider.providerType)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Cost", provider.cost)}
+        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderStatusBadge(provider.status)}
+      </Container>
+    );
+  };
 
-function renderPlasmaDetails(provider) {
-  return (
-    <div>
-      <label>Provider Name:</label>
-      <h1>{provider.name}</h1>
+  const renderPlasmaDetails = () => {
+    return (
+      <Container className="text-left">
+        {renderDetailRow("Location", provider.location)}
+        {renderDetailRow("Contact", provider.contact)}
+        {renderDetailRow("Blood Group", provider.bloodGroup)}
+        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderStatusBadge(provider.status)}
+      </Container>
+    );
+  };
 
-      <label>Contact:</label>
-      <h1>{provider.contact}</h1>
+  const renderRemdesivirDetails = () => {
+    return (
+      <Container className="text-left">
+        {renderDetailRow("Location", provider.location)}
+        {renderDetailRow("Contact", provider.contact)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Availability", provider.availability)}
+        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderStatusBadge(provider.status)}
+      </Container>
+    );
+  };
 
-      <label>Alternate Contact:</label>
-      <h1>{provider.alternateContact}</h1>
-
-      <label>Blood Group:</label>
-      <h1>{provider.bloodGroup}</h1>
-
-      <label>Status:</label>
-      <h1>{provider.status}</h1>
-    </div>
-  );
-}
-
-function renderMedicineDetails(provider) {
-  return (
-    <div>
-      <label>Provider Name:</label>
-      <h1>{provider.name}</h1>
-
-      <label>Contact:</label>
-      <h1>{provider.contact}</h1>
-
-      <label>Status:</label>
-      <h1>{provider.status}</h1>
-    </div>
-  );
-}
-
-function renderOtherDetails(provider) {
-  return (
-    <div>
-      <label>Provider Name:</label>
-      <h1>{provider.name}</h1>
-
-      <label>Contact:</label>
-      <h1>{provider.contact}</h1>
-
-      <label>Status:</label>
-      <h1>{provider.status}</h1>
-    </div>
-  );
-}
-
-function HelpDetails() {
-  const location = useLocation();
-  const { category, provider } = location.state;
+  const renderMealsDetails = () => {
+    return (
+      <Container className="text-left">
+        {renderDetailRow("Location", provider.location)}
+        {renderDetailRow("Contact", provider.contact)}
+        {renderDetailRow("Provider Type", provider.providerType)}
+        {renderDetailRow("Service Areas", provider.serviceAreas)}
+        {renderDetailRow("Service Hours", provider.serviceHours)}
+        {renderDetailRow("Delivery Option", provider.deliveryOption)}
+        {renderDetailRow("Cost", provider.cost)}
+        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderStatusBadge(provider.status)}
+      </Container>
+    );
+  };
 
   return (
     <div>
-      {category === HELP_CATEGORY.OXYGEN && renderOxygenDetails(provider)}
+      {category === HELP_CATEGORY.OXYGEN && renderOxygenDetails()}
       {category === HELP_CATEGORY.AMBULANCE && renderAmbulanceDetails(provider)}
       {category === HELP_CATEGORY.PLASMA && renderPlasmaDetails(provider)}
-      {category === HELP_CATEGORY.MEDICINES && renderMedicineDetails(provider)}
-      {category === HELP_CATEGORY.OTHERS && renderOtherDetails(provider)}
+      {category === HELP_CATEGORY.REMDESIVIR &&
+        renderRemdesivirDetails(provider)}
+      {category === HELP_CATEGORY.MEALS && renderMealsDetails(provider)}
     </div>
   );
 }

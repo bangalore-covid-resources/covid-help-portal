@@ -1,4 +1,5 @@
-import { useHistory } from "react-router";
+import { useState, useEffect } from "react";
+import { Card, Button, Row, Col, Container, Badge } from "react-bootstrap";
 
 import * as Oxygen from "../../content/data/oxygen.json";
 import * as Ambulance from "../../content/data/ambulance.json";
@@ -6,152 +7,223 @@ import * as Plasma from "../../content/data/plasma.json";
 import * as Medicines from "../../content/data/medicines.json";
 import * as Others from "../../content/data/others.json";
 
-import APPLICATION_URL from "../../constants/application-routes";
-import { HELP_CATEGORY } from "../../constants/constants";
-
+import {
+  HELP_CATEGORY,
+  MEDICINES,
+  OTHER_HELP,
+} from "../../constants/constants";
 import helpers from "../../helpers/helpers";
-
-let history;
-let category;
-
-function isSimpleCategory(category) {
-  return (
-    category === HELP_CATEGORY.AMBULANCE || category === HELP_CATEGORY.PLASMA
-  );
-}
-
-function routeToHelpDetails(provider) {
-  history.push({
-    pathname: APPLICATION_URL.DETAILS,
-    state: { category: category, provider: provider },
-  });
-}
-
-function renderOthers(helpCategory) {
-  return (
-    <div>
-      <label>Help Category:</label>
-      <h1>{helpCategory.name}</h1>
-      {helpCategory.providers.map((provider) => renderProvider(provider))}
-    </div>
-  );
-}
-
-function renderMedicine(medicine) {
-  return (
-    <div>
-      <label>Medicine Name:</label>
-      <h1>{medicine.name}</h1>
-      {medicine.providers.map((provider) => renderProvider(provider))}
-    </div>
-  );
-}
-
-function renderOxygenProvider(provider) {
-  return (
-    <div
-      class="container text-left"
-      onClick={() => routeToHelpDetails(provider)}
-    >
-      <div class="card mb-3" style={{ width: "30%" }}>
-        <div class="card-header text-white bg-info">{provider.name}</div>
-        <div class="card-body">
-          <div className="row card-text">
-            <div className="col-sm-6">
-              <label>Location:</label>
-            </div>
-            <div className="col-sm-6">
-              <p>{provider.location}</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-6">
-              <label>Contact:</label>
-            </div>
-            <div className="col-sm-6">
-              <p>{provider.contact}</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-6">
-              <label>Availability:</label>
-            </div>
-            <div className="col-sm-6">
-              <p>{helpers.getStringValue(provider.availability)}</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-6">
-              <label>Status:</label>
-            </div>
-            <div className="col-sm-6">
-              <span
-                className={`badge ${helpers.getStatusBadgeClass(
-                  provider.status
-                )}`}
-              >
-                {provider.status}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function renderProvider(provider) {
-  return (
-    <div onClick={() => routeToHelpDetails(provider)}>
-      <label>Provider Name:</label>
-      <h1>{provider.name}</h1>
-      <label>Contact:</label>
-      <h2>{provider.contact}</h2>
-      <label>Staus:</label>
-      <p>{provider.status}</p>
-    </div>
-  );
-}
+import HelpDetailsDialog from "../dialogs/help-details-dialog";
 
 function HelpSummary(props) {
-  category = props.category;
-  history = useHistory();
-  let help;
+  const [helpDetailsShow, setHelpDetailsShow] = useState(false);
+  const [helpProviders, setHelpProviders] = useState([]);
+  const [provider, setProvider] = useState({});
+  const { category } = props;
 
-  switch (category) {
-    case HELP_CATEGORY.OXYGEN:
-      help = Oxygen.providers;
-      break;
-    case HELP_CATEGORY.AMBULANCE:
-      help = Ambulance.providers;
-      break;
-    case HELP_CATEGORY.MEDICINES:
-      help = Medicines.medicines;
-      break;
-    case HELP_CATEGORY.PLASMA:
-      help = Plasma.providers;
-      break;
-    case HELP_CATEGORY.OTHERS:
-      help = Others.helpCategories;
-      break;
-    default:
-  }
+  useEffect(() => {
+    loadHelpProviders();
+  });
+
+  const loadHelpProviders = () => {
+    switch (category) {
+      case HELP_CATEGORY.OXYGEN:
+        setHelpProviders(Oxygen.providers);
+        break;
+      case HELP_CATEGORY.AMBULANCE:
+        setHelpProviders(Ambulance.providers);
+        break;
+      case HELP_CATEGORY.PLASMA:
+        setHelpProviders(Plasma.providers);
+        break;
+      case HELP_CATEGORY.REMDESIVIR:
+        const remdesivir = Medicines.medicines.find(
+          (m) => m.name === MEDICINES.REMDESIVIR
+        );
+        setHelpProviders(remdesivir.providers);
+        break;
+      case HELP_CATEGORY.MEALS:
+        const meals = Others.helpCategories.find(
+          (m) => m.name === OTHER_HELP.MEALS
+        );
+        setHelpProviders(meals.providers);
+        break;
+      default:
+    }
+  };
+
+  const renderDetailRow = (title, value) => {
+    return (
+      <Row>
+        <Col>
+          <label className="font-weight-bold">{title}:</label>
+        </Col>
+        <Col>
+          <p>{helpers.getStringValue(value)}</p>
+        </Col>
+      </Row>
+    );
+  };
+
+  const renderStatusBadge = (status) => {
+    return (
+      <Row>
+        <Col>
+          {" "}
+          <label className="font-weight-bold">Status:</label>
+        </Col>
+        <Col>
+          <Badge variant={helpers.getStatusBadgeVariant(status)}>
+            {status}
+          </Badge>
+        </Col>
+      </Row>
+    );
+  };
+
+  const renderViewDetailsButton = (provider) => {
+    return (
+      <Button
+        className="float-right"
+        size="sm"
+        variant="primary"
+        onClick={() => {
+          setProvider(provider);
+          setHelpDetailsShow(true);
+        }}
+      >
+        View details
+      </Button>
+    );
+  };
+
+  const renderOxygenProvider = (provider) => {
+    return (
+      <Container className="text-left" style={{ flexBasis: "25%" }}>
+        <Card className="mb-3" style={{ maxWidth: "400px" }}>
+          <Card.Header className="text-white bg-info text-center">
+            {provider.name}
+          </Card.Header>
+          <Card.Body style={{ backgroundColor: "azure" }}>
+            <Card.Text>
+              {renderDetailRow("Location", provider.location)}
+              {renderDetailRow("Contact", provider.contact)}
+              {renderDetailRow("Availability", provider.availability)}
+              {renderStatusBadge(provider.status)}
+            </Card.Text>
+            {renderViewDetailsButton(provider)}
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  };
+
+  const renderAmbulanceProvider = (provider) => {
+    return (
+      <Container className="text-left" style={{ flexBasis: "25%" }}>
+        <Card className="mb-3" style={{ maxWidth: "400px" }}>
+          <Card.Header className="text-white bg-info text-center">
+            {provider.name}
+          </Card.Header>
+          <Card.Body style={{ backgroundColor: "azure" }}>
+            <Card.Text>
+              {renderDetailRow("Location", provider.location)}
+              {renderDetailRow("Contact", provider.contact)}
+              {renderDetailRow("Provider Type", provider.providerType)}
+              {renderStatusBadge(provider.status)}
+            </Card.Text>
+            {renderViewDetailsButton(provider)}
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  };
+
+  const renderPlasmaProvider = (provider) => {
+    return (
+      <Container className="text-left" style={{ flexBasis: "25%" }}>
+        <Card className="mb-3" style={{ maxWidth: "400px" }}>
+          <Card.Header className="text-white bg-info text-center">
+            {provider.name}
+          </Card.Header>
+          <Card.Body style={{ backgroundColor: "azure" }}>
+            <Card.Text>
+              {renderDetailRow("Location", provider.location)}
+              {renderDetailRow("Contact", provider.contact)}
+              {renderDetailRow("Blood Group", provider.bloodGroup)}
+              {renderStatusBadge(provider.status)}
+            </Card.Text>
+            {renderViewDetailsButton(provider)}
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  };
+
+  const renderRemdesivirProvider = (provider) => {
+    return (
+      <Container className="text-left" style={{ flexBasis: "25%" }}>
+        <Card className="mb-3" style={{ maxWidth: "400px" }}>
+          <Card.Header className="text-white bg-info text-center">
+            {provider.name}
+          </Card.Header>
+          <Card.Body style={{ backgroundColor: "azure" }}>
+            <Card.Text>
+              {renderDetailRow("Location", provider.location)}
+              {renderDetailRow("Contact", provider.contact)}
+              {renderDetailRow("Availability", provider.availability)}
+              {renderStatusBadge(provider.status)}
+            </Card.Text>
+            {renderViewDetailsButton(provider)}
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  };
+
+  const renderMealsProvider = (provider) => {
+    return (
+      <Container className="text-left" style={{ flexBasis: "25%" }}>
+        <Card className="mb-3" style={{ maxWidth: "400px" }}>
+          <Card.Header className="text-white bg-info text-center">
+            {provider.name}
+          </Card.Header>
+          <Card.Body style={{ backgroundColor: "azure" }}>
+            <Card.Text>
+              {renderDetailRow("Location", provider.location)}
+              {renderDetailRow("Contact", provider.contact)}
+              {renderDetailRow("Provider Type", provider.providerType)}
+              {renderDetailRow("Service Hours", provider.serviceHours)}
+              {renderStatusBadge(provider.status)}
+            </Card.Text>
+            {renderViewDetailsButton(provider)}
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  };
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-lg-12">
-          {isSimpleCategory(category) &&
-            help.map((provider) => renderProvider(provider))}
-          {category === HELP_CATEGORY.OXYGEN &&
-            help.map((provider) => renderOxygenProvider(provider))}
-          {category === HELP_CATEGORY.MEDICINES &&
-            help.map((medicine) => renderMedicine(medicine))}
-          {category === HELP_CATEGORY.OTHERS &&
-            help.map((helpCategory) => renderOthers(helpCategory))}
-        </div>
+    <Container fluid>
+      <div className="d-flex flex-wrap">
+        {category === HELP_CATEGORY.OXYGEN &&
+          helpProviders.map((provider) => renderOxygenProvider(provider))}
+        {category === HELP_CATEGORY.AMBULANCE &&
+          helpProviders.map((provider) => renderAmbulanceProvider(provider))}
+        {category === HELP_CATEGORY.PLASMA &&
+          helpProviders.map((provider) => renderPlasmaProvider(provider))}
+        {category === HELP_CATEGORY.REMDESIVIR &&
+          helpProviders.map((provider) => renderRemdesivirProvider(provider))}
+        {category === HELP_CATEGORY.MEALS &&
+          helpProviders.map((provider) => renderMealsProvider(provider))}
       </div>
-    </div>
+      <HelpDetailsDialog
+        category={category}
+        provider={provider}
+        show={helpDetailsShow}
+        onHide={() => setHelpDetailsShow(false)}
+      />
+    </Container>
   );
 }
 
