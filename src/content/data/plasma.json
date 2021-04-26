@@ -6,7 +6,7 @@
       "contact": "9700655144",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Mani",
@@ -14,7 +14,7 @@
       "contact": "7401535415",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Edwin",
@@ -22,7 +22,7 @@
       "contact": "9791150119",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Murali",
@@ -30,7 +30,7 @@
       "contact": "7299399392",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Kalidass",
@@ -38,7 +38,7 @@
       "contact": "9943948951",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Sriram",
@@ -46,7 +46,7 @@
       "contact": "8056051072",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Ramesh",
@@ -54,7 +54,7 @@
       "contact": "9884727286",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Venkat",
@@ -62,7 +62,7 @@
       "contact": "9666661705",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Joshua",
@@ -70,7 +70,7 @@
       "contact": "9704972553",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Yuvaraj",
@@ -78,7 +78,7 @@
       "contact": "8124291412",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Madhan",
@@ -86,7 +86,7 @@
       "contact": "9940391891",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Vijay",
@@ -94,7 +94,7 @@
       "contact": "9790954376",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     },
     {
       "name": "Jeeva",
@@ -102,7 +102,7 @@
       "contact": "8056292339",
       "location": "Bangalore",
       "status": "Unverified",
-      "otherDetails": ""
+      "otherDetails": []
     }
   ]
 }

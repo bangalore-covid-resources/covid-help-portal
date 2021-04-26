@@ -13,7 +13,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Sneha",
@@ -25,7 +25,7 @@
           "deliveryOption": "Dunzo/Swiggy",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Masala Box",
@@ -37,7 +37,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Bharavi",
@@ -49,7 +49,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Recipe of Hope",
@@ -61,7 +61,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "14 days pack",
@@ -73,7 +73,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Shuchi",
@@ -85,7 +85,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Aduggemane",
@@ -97,7 +97,9 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": "Breakfast / Lunch and Dinner for 14 days as a package"
+          "otherDetails": [
+            "Breakfast / Lunch and Dinner for 14 days as a package"
+          ]
         },
         {
           "name": "Nancy",
@@ -109,7 +111,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Renu",
@@ -121,7 +123,7 @@
           "deliveryOption": "Dunzo",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Saloni aunty",
@@ -133,7 +135,7 @@
           "deliveryOption": "",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Vandana",
@@ -145,7 +147,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Adhvaithaa Kandaari",
@@ -157,7 +159,7 @@
           "deliveryOption": "3rd party",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Vishal Himatsinghka",
@@ -169,7 +171,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Mission Chai",
@@ -181,7 +183,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Swaad",
@@ -193,7 +195,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Oota Box",
@@ -205,7 +207,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Hansika Subramanian",
@@ -217,7 +219,7 @@
           "deliveryOption": "Dunzo",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Mitushree",
@@ -229,7 +231,7 @@
           "deliveryOption": "3rd party",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Girish",
@@ -241,7 +243,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         },
         {
           "name": "Evaa",
@@ -253,7 +255,7 @@
           "deliveryOption": "Direct",
           "cost": "",
           "status": "Unverified",
-          "otherDetails": ""
+          "otherDetails": []
         }
       ]
     }

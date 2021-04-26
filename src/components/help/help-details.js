@@ -69,7 +69,7 @@ function HelpDetails(props) {
         {renderDetailRow("Deposit", provider.deposit)}
         {renderDetailRow("Charge", provider.charge)}
         {renderDetailRow("Availability", provider.availability)}
-        {renderDetailRow("Other details", provider.otherDetails)}
+        {renderDetailArrayRow("Other details", provider.otherDetails)}
         {renderStatusBadge(provider.status)}
       </Container>
     );
@@ -83,7 +83,7 @@ function HelpDetails(props) {
         {renderDetailRow("Provider Type", provider.providerType)}
         {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Cost", provider.cost)}
-        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderStatusBadge(provider.status)}
       </Container>
     );
@@ -95,7 +95,7 @@ function HelpDetails(props) {
         {renderDetailRow("Location", provider.location)}
         {renderDetailRow("Contact", provider.contact)}
         {renderDetailRow("Blood Group", provider.bloodGroup)}
-        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderStatusBadge(provider.status)}
       </Container>
     );
@@ -108,7 +108,7 @@ function HelpDetails(props) {
         {renderDetailRow("Contact", provider.contact)}
         {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Availability", provider.availability)}
-        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderStatusBadge(provider.status)}
       </Container>
     );
@@ -124,7 +124,7 @@ function HelpDetails(props) {
         {renderDetailRow("Service Hours", provider.serviceHours)}
         {renderDetailRow("Delivery Option", provider.deliveryOption)}
         {renderDetailRow("Cost", provider.cost)}
-        {renderDetailRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderStatusBadge(provider.status)}
       </Container>
     );

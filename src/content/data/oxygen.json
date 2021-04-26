@@ -2,6 +2,22 @@
   "providers": [
     {
       "location": "Bangalore",
+      "name": "Thanisandra United Forum",
+      "contact": "9141613381",
+      "alternateContacts": ["9341211648", "9341884200", "9686871337"],
+      "address": "Abu Bakr Masjid, Thanisandra and Opp Jamia Masjid Bhoopasandra",
+      "deposit": "5000",
+      "charge": "400 for 10 lts",
+      "availability": "Available",
+      "otherDetails": [
+        "Contact Person: Salman.",
+        "Needs ID Proof and Doctor Prescription.",
+        "If cylinders are out of stock, oxygen can be refilled."
+      ],
+      "status": "Verified"
+    },
+    {
+      "location": "Bangalore",
       "name": "Dr KK Mohammed Gayasuddin Sab",
       "contact": "9845333356",
       "alternateContacts": ["9945333356", "+91 80 41463356"],
@@ -9,7 +25,7 @@
       "deposit": "",
       "charge": "",
       "availability": "",
-      "otherDetails": "",
+      "otherDetails": [],
       "status": "Unverified"
     },
     {
@@ -21,31 +37,20 @@
       "deposit": "5000-8000",
       "charge": "",
       "availability": "",
-      "otherDetails": "Needs Docter Prescription and Deposit is Refundable",
+      "otherDetails": ["Needs Docter Prescription.", "Deposit is Refundable."],
       "status": "Unverified"
     },
-    {
-      "location": "Bangalore",
-      "name": "Thanisandra United Forum",
-      "contact": "9686871337",
-      "alternateContacts": ["9341211648", "9341884200", "9141613381"],
-      "address": "Thanisandra",
-      "deposit": "5000",
-      "charge": "",
-      "availability": "",
-      "otherDetails": "Free for poor or Thanisandra localities.Needs ID Proof and Doctor Prescription",
-      "status": "Unverified"
-    },
+
     {
       "location": "Bangalore",
       "name": "Sports365",
       "contact": "9986966909",
-      "alternateContacts": ["6304498317"],
+      "alternateContacts": [],
       "address": "",
       "deposit": "",
       "charge": "",
       "availability": "",
-      "otherDetails": "Contact Person: Ashish Bhiwani",
+      "otherDetails": ["Contact Person: Ashish Bhiwani."],
       "status": "Unverified"
     }
   ]

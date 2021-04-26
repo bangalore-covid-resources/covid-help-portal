@@ -18,7 +18,7 @@ const helpers = {
         variant = "warning";
         break;
       default:
-        variant = "success";
+        variant = "danger";
         break;
     }
     return variant;
