@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/covid-help-portal/static/css/main.9b056391.chunk.css",
-    "main.js": "/covid-help-portal/static/js/main.569ba575.chunk.js",
-    "main.js.map": "/covid-help-portal/static/js/main.569ba575.chunk.js.map",
+    "main.js": "/covid-help-portal/static/js/main.fef563ba.chunk.js",
+    "main.js.map": "/covid-help-portal/static/js/main.fef563ba.chunk.js.map",
     "runtime-main.js": "/covid-help-portal/static/js/runtime-main.5c5f1fa7.js",
     "runtime-main.js.map": "/covid-help-portal/static/js/runtime-main.5c5f1fa7.js.map",
     "static/js/2.6878cf4d.chunk.js": "/covid-help-portal/static/js/2.6878cf4d.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5c5f1fa7.js",
     "static/js/2.6878cf4d.chunk.js",
     "static/css/main.9b056391.chunk.css",
-    "static/js/main.569ba575.chunk.js"
+    "static/js/main.fef563ba.chunk.js"
   ]
 }
