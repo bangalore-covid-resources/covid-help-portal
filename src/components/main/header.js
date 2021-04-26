@@ -8,7 +8,6 @@ function Header() {
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      {/* <Navbar.Brand href={APPLICATION_URL.HOME}>Covid Help Portal</Navbar.Brand> */}
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav activeKey={location.pathname}>

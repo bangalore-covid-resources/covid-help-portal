@@ -205,6 +205,14 @@ function HelpSummary(props) {
 
   return (
     <Container fluid>
+      <div
+        className="mb-5 mt-5 text-center border"
+        style={{ backgroundColor: "azure", height: "5%" }}
+      >
+        <h1>
+          {category.charAt(0).toUpperCase() + category.slice(1)} Providers
+        </h1>
+      </div>
       <div className="d-flex flex-wrap">
         {category === HELP_CATEGORY.OXYGEN &&
           helpProviders.map((provider) => renderOxygenProvider(provider))}
