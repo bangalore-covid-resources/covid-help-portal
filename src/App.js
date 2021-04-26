@@ -1,4 +1,4 @@
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from "./components/main/header";
 import Footer from "./components/main/footer";
@@ -8,7 +8,7 @@ import "./content/styles/App.scss";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/covid-help-portal">
       <div className="App">
         <Header />
         <RouterConfig />
