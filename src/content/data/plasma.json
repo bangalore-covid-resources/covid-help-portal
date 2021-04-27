@@ -6,7 +6,15 @@
       "contact": "8892242470",
       "location": "Bangalore",
       "status": "Verified",
-      "otherDetails": ["Can donate at any place in Bangalore"]
+      "otherDetails": ["Can donate at any place in Bangalore."]
+    },
+    {
+      "name": "Athreya",
+      "bloodGroup": "O-",
+      "contact": "9964206630",
+      "location": "Bangalore",
+      "status": "Verified",
+      "otherDetails": ["Recovered from Covid in August-2020."]
     }
   ]
 }
