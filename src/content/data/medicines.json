@@ -8,9 +8,12 @@
           "location": "Bangalore",
           "contact": "7829980066",
           "alternateContacts": [],
-          "availability": "",
-          "otherDetails": [],
-          "status": "Unverified"
+          "availability": "Available",
+          "otherDetails": [
+            "Call the number and wait for the call back.",
+            "Keep Hospital name, Hospital Pharmacist name and Contact number handy."
+          ],
+          "status": "Verified"
         }
       ]
     }

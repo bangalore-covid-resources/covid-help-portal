@@ -20,7 +20,7 @@ function Home() {
             </p>
             <p>
               This portal aims at reducing this time by providing the details of
-              the credible sources frequenctly verified by our team of
+              the credible sources frequently verified by our team of
               volunteers.
             </p>
             <p>

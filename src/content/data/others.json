@@ -4,6 +4,18 @@
       "name": "Meals",
       "providers": [
         {
+          "name": "Yuva Brigade",
+          "location": "Bangalore",
+          "providerType": "Volunteer Org",
+          "contact": "9632302032",
+          "serviceAreas": "Jayanagar, Girinagar, Basavanagudi, Banashankari, Vijaynagar",
+          "serviceHours": "Lunch",
+          "deliveryOption": "Direct",
+          "cost": "Free",
+          "status": "Verified",
+          "otherDetails": ["Share your BU number."]
+        },
+        {
           "name": "Sarvesh",
           "location": "Bangalore",
           "providerType": "Restaurant",
