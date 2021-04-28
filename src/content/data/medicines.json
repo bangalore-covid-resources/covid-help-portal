@@ -5,6 +5,7 @@
       "providers": [
         {
           "name": "Mylan Healthcare",
+          "state": "Karnataka",
           "location": "Bangalore",
           "contact": "7829980066",
           "alternateContacts": [],

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Card, Button, Row, Col, Container, Badge } from "react-bootstrap";
 
+import Dropdown from "../custom/dropdown";
+
 import * as Oxygen from "../../content/data/oxygen.json";
 import * as Ambulance from "../../content/data/ambulance.json";
 import * as Plasma from "../../content/data/plasma.json";
@@ -16,37 +18,58 @@ import helpers from "../../helpers/helpers";
 import HelpDetailsDialog from "../dialogs/help-details-dialog";
 
 function HelpSummary(props) {
+  const [providers, setProviders] = useState([]);
+  const [selectedProvider, setSelectedProvider] = useState({});
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedBloodGroup, setSelectedBloodGroup] = useState("");
+  const [selectedProviderType, setSelectedProviderType] = useState("");
   const [helpDetailsShow, setHelpDetailsShow] = useState(false);
-  const [helpProviders, setHelpProviders] = useState([]);
-  const [provider, setProvider] = useState({});
   const { category } = props;
 
   useEffect(() => {
     loadHelpProviders();
   });
 
+  const filteredProviders = providers.filter((item) => {
+    let filterMatched = true;
+    if (selectedState) {
+      filterMatched = item.state === selectedState;
+    }
+    if (filterMatched && selectedLocation) {
+      filterMatched = item.location === selectedLocation;
+    }
+    if (filterMatched && selectedBloodGroup) {
+      filterMatched = item.bloodGroup === selectedBloodGroup;
+    }
+    if (filterMatched && selectedProviderType) {
+      filterMatched = item.providerType === selectedProviderType;
+    }
+    return filterMatched;
+  });
+
   const loadHelpProviders = () => {
     switch (category) {
       case HELP_CATEGORY.OXYGEN:
-        setHelpProviders(Oxygen.providers);
+        setProviders(Oxygen.providers);
         break;
       case HELP_CATEGORY.AMBULANCE:
-        setHelpProviders(Ambulance.providers);
+        setProviders(Ambulance.providers);
         break;
       case HELP_CATEGORY.PLASMA:
-        setHelpProviders(Plasma.providers);
+        setProviders(Plasma.providers);
         break;
       case HELP_CATEGORY.REMDESIVIR:
         const remdesivir = Medicines.medicines.find(
           (m) => m.name === MEDICINES.REMDESIVIR
         );
-        setHelpProviders(remdesivir.providers);
+        setProviders(remdesivir.providers);
         break;
       case HELP_CATEGORY.MEALS:
         const meals = Others.helpCategories.find(
           (m) => m.name === OTHER_HELP.MEALS
         );
-        setHelpProviders(meals.providers);
+        setProviders(meals.providers);
         break;
       default:
     }
@@ -88,7 +111,7 @@ function HelpSummary(props) {
         size="sm"
         variant="primary"
         onClick={() => {
-          setProvider(provider);
+          setSelectedProvider(provider);
           setHelpDetailsShow(true);
         }}
       >
@@ -203,6 +226,57 @@ function HelpSummary(props) {
     );
   };
 
+  const renderFilters = () => {
+    const uniqueLocations = [
+      ...new Set(providers.map((provider) => provider.location)),
+    ];
+    const uniqueStates = [
+      ...new Set(providers.map((provider) => provider.state)),
+    ];
+    const uniqueBloodGroups = [
+      ...new Set(providers.map((provider) => provider.bloodGroup)),
+    ];
+    const uniqueProviderTypes = [
+      ...new Set(providers.map((provider) => provider.providerType)),
+    ];
+    return (
+      <Row className="mb-5">
+        <Col md="1" className="mb-1">
+          <Dropdown
+            title="State"
+            items={uniqueStates}
+            setSelected={setSelectedState}
+          />
+        </Col>
+        <Col md="1" className="mb-1">
+          <Dropdown
+            title="City"
+            items={uniqueLocations}
+            setSelected={setSelectedLocation}
+          />
+        </Col>
+        {category === HELP_CATEGORY.PLASMA && (
+          <Col md="1" className="mb-1">
+            <Dropdown
+              title="Blood Group"
+              items={uniqueBloodGroups}
+              setSelected={setSelectedBloodGroup}
+            />
+          </Col>
+        )}
+        {category === HELP_CATEGORY.MEALS && (
+          <Col>
+            <Dropdown
+              title="Provider Type"
+              items={uniqueProviderTypes}
+              setSelected={setSelectedProviderType}
+            />
+          </Col>
+        )}
+      </Row>
+    );
+  };
+
   return (
     <Container fluid>
       <div
@@ -213,21 +287,26 @@ function HelpSummary(props) {
           {category.charAt(0).toUpperCase() + category.slice(1)} Providers
         </h1>
       </div>
+      {renderFilters()}
       <div className="d-flex flex-wrap">
         {category === HELP_CATEGORY.OXYGEN &&
-          helpProviders.map((provider) => renderOxygenProvider(provider))}
+          filteredProviders.map((provider) => renderOxygenProvider(provider))}
         {category === HELP_CATEGORY.AMBULANCE &&
-          helpProviders.map((provider) => renderAmbulanceProvider(provider))}
+          filteredProviders.map((provider) =>
+            renderAmbulanceProvider(provider)
+          )}
         {category === HELP_CATEGORY.PLASMA &&
-          helpProviders.map((provider) => renderPlasmaProvider(provider))}
+          filteredProviders.map((provider) => renderPlasmaProvider(provider))}
         {category === HELP_CATEGORY.REMDESIVIR &&
-          helpProviders.map((provider) => renderRemdesivirProvider(provider))}
+          filteredProviders.map((provider) =>
+            renderRemdesivirProvider(provider)
+          )}
         {category === HELP_CATEGORY.MEALS &&
-          helpProviders.map((provider) => renderMealsProvider(provider))}
+          filteredProviders.map((provider) => renderMealsProvider(provider))}
       </div>
       <HelpDetailsDialog
         category={category}
-        provider={provider}
+        provider={selectedProvider}
         show={helpDetailsShow}
         onHide={() => setHelpDetailsShow(false)}
       />

@@ -1,6 +1,7 @@
 {
   "providers": [
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Vishwannadh Ambulance",
       "providerType": "Private",
@@ -11,6 +12,7 @@
       "status": "Verified"
     },
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Vijayshree Ambulance",
       "providerType": "Private",
@@ -21,6 +23,7 @@
       "status": "Verified"
     },
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Pooja Ambulance",
       "providerType": "Private",
@@ -31,6 +34,7 @@
       "status": "Verified"
     },
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Nagaraju Ambulance",
       "providerType": "Private",
@@ -41,6 +45,7 @@
       "status": "Verified"
     },
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Krishnamurthi Ambulance",
       "providerType": "Private",

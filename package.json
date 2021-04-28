@@ -1,6 +1,6 @@
 {
   "name": "covid-help-portal",
-  "homepage": "https://india-covid-resources.github.io",
+  "homepage": "https://covidresourcesindia.org/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

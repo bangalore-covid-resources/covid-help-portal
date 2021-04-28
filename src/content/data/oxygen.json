@@ -1,6 +1,7 @@
 {
   "providers": [
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Thanisandra United Forum",
       "contact": "9141613381",
@@ -17,6 +18,7 @@
       "status": "Verified"
     },
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "OXY HELP Crisis Management Team",
       "contact": "9945500113",
@@ -28,8 +30,8 @@
       "otherDetails": ["Needs Docter Prescription.", "Deposit is Refundable."],
       "status": "Unverified"
     },
-
     {
+      "state": "Karnataka",
       "location": "Bangalore",
       "name": "Sports365",
       "contact": "9986966909",
