@@ -3,13 +3,28 @@
     {
       "state": "Karnataka",
       "location": "Bangalore",
+      "name": "Govt Of Karnataka",
+      "contact": "8951755722",
+      "alternateContacts": ["104"],
+      "address": "",
+      "deposit": "",
+      "charge": "",
+      "availability": "Call and check",
+      "otherDetails": [
+        "Govt of Karnataka Drug control helpline covid war room"
+      ],
+      "status": "Verified"
+    },
+    {
+      "state": "Karnataka",
+      "location": "Bangalore",
       "name": "Thanisandra United Forum",
       "contact": "9141613381",
       "alternateContacts": ["9341211648", "9341884200", "9686871337"],
       "address": "Abu Bakr Masjid, Thanisandra and Opp Jamia Masjid Bhoopasandra",
-      "deposit": "5000",
+      "deposit": "5000 Refundable",
       "charge": "400 for 10 lts",
-      "availability": "Available",
+      "availability": "Call and check",
       "otherDetails": [
         "Contact Person: Salman.",
         "Needs ID Proof and Doctor Prescription.",
@@ -20,28 +35,31 @@
     {
       "state": "Karnataka",
       "location": "Bangalore",
-      "name": "OXY HELP Crisis Management Team",
-      "contact": "9945500113",
-      "alternateContacts": [],
-      "address": "JC Nagar",
-      "deposit": "5000-8000",
-      "charge": "",
-      "availability": "",
-      "otherDetails": ["Needs Docter Prescription.", "Deposit is Refundable."],
-      "status": "Unverified"
-    },
-    {
-      "state": "Karnataka",
-      "location": "Bangalore",
-      "name": "Sports365",
-      "contact": "9986966909",
+      "name": "Eco-Revive Infrastrucure/SaiDarshan",
+      "contact": "9481838000",
       "alternateContacts": [],
       "address": "",
       "deposit": "",
       "charge": "",
-      "availability": "",
-      "otherDetails": ["Contact Person: Ashish Bhiwani."],
-      "status": "Unverified"
+      "availability": "Call and check",
+      "otherDetails": [],
+      "status": "Verified"
+    },
+    {
+      "state": "Karnataka",
+      "location": "Bangalore",
+      "name": "Mercy Mission",
+      "contact": "8660856709",
+      "alternateContacts": [],
+      "address": "Basavangudi,Chandra Layout, Bhoopasandra, JHBCS Layout,Mahadevapura",
+      "deposit": "8000 Refundable",
+      "charge": "",
+      "availability": "Call and check",
+      "otherDetails": [
+        "Needs ID Proof and Doctor Prescription.",
+        "If cylinders are out of stock, oxygen can be refilled."
+      ],
+      "status": "Verified"
     }
   ]
 }

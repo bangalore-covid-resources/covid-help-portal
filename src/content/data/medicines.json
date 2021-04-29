@@ -4,12 +4,22 @@
       "name": "Remdesivir",
       "providers": [
         {
+          "name": "Govt Of Karnataka",
+          "state": "Karnataka",
+          "location": "Bangalore",
+          "contact": "8951755722",
+          "alternateContacts": [],
+          "availability": "Call and check",
+          "otherDetails": ["Dedicated for Remdesivir supply"],
+          "status": "Verified"
+        },
+        {
           "name": "Mylan Healthcare",
           "state": "Karnataka",
           "location": "Bangalore",
           "contact": "7829980066",
           "alternateContacts": [],
-          "availability": "Available",
+          "availability": "Call and check",
           "otherDetails": [
             "Call the number and wait for the call back.",
             "Keep Hospital name, Hospital Pharmacist name and Contact number handy."

@@ -124,6 +124,7 @@ function HelpDetails(props) {
         {renderDetailRow("Service Hours", provider.serviceHours)}
         {renderDetailRow("Delivery Option", provider.deliveryOption)}
         {renderDetailRow("Cost", provider.cost)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderStatusBadge(provider.status)}
       </Container>

@@ -3,6 +3,17 @@
     {
       "state": "Karnataka",
       "location": "Bangalore",
+      "name": "Govt of Karnataka",
+      "providerType": "Government",
+      "contact": "108",
+      "alternateContacts": [],
+      "cost": "Free",
+      "otherDetails": [],
+      "status": "Verified"
+    },
+    {
+      "state": "Karnataka",
+      "location": "Bangalore",
       "name": "Vishwannadh Ambulance",
       "providerType": "Private",
       "contact": "9845734411",
