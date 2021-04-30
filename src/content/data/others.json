@@ -29,7 +29,7 @@
           "deliveryOption": "Dunzo/Swiggy",
           "cost": "250 per day + delivery",
           "status": "Verified",
-          "otherDetails": ["Located in south Bangalore"]
+          "otherDetails": ["Located in south Bangalore."]
         },
         {
           "name": "Sneha",
@@ -43,7 +43,7 @@
           "deliveryOption": "Dunzo/Swiggy",
           "cost": "Free",
           "status": "Verified",
-          "otherDetails": ["Group of Individual volunteers"]
+          "otherDetails": ["Group of Individual volunteers."]
         },
         {
           "name": "Recipe of Hope",
@@ -58,8 +58,8 @@
           "cost": "Free",
           "status": "Verified",
           "otherDetails": [
-            "For registration of new cooks call  9741955994(Sneha)",
-            "Recipient has to arrange for Dunzo pickup"
+            "For registration of new cooks call  9741955994(Sneha).",
+            "Recipient has to arrange for Dunzo pickup."
           ]
         },
         {
@@ -75,8 +75,8 @@
           "cost": "150 per day + delivery",
           "status": "Verified",
           "otherDetails": [
-            "South Indian Veg Meals",
-            "Lunch and dinner will be provided together"
+            "South Indian Veg Meals.",
+            "Lunch and dinner will be provided together."
           ]
         },
         {
@@ -91,7 +91,7 @@
           "deliveryOption": "Dunzo/Porter",
           "cost": "150 per day + delivery",
           "status": "Verified",
-          "otherDetails": ["North Indian Veg Meals", "Located in Frazer town"]
+          "otherDetails": ["North Indian Veg Meals.", "Located in Frazer town."]
         },
         {
           "name": "Nancy",
@@ -101,13 +101,13 @@
           "contact": "8368566353",
           "alternateContacts": [],
           "serviceAreas": "All across",
-          "serviceHours": "9am - 1am",
+          "serviceHours": "Lunch/Dinner",
           "deliveryOption": "Porter",
           "cost": "120-150 per meal + delivery",
           "status": "Verified",
           "otherDetails": [
-            "Vegetarian meals",
-            "Payment advance before 11 AM for lunch and before 6PM for dinner"
+            "Vegetarian meals.",
+            "Payment advance before 11 AM for lunch and before 6PM for dinner."
           ]
         },
         {
@@ -122,7 +122,7 @@
           "deliveryOption": "Direct",
           "cost": "150 per day + delivery",
           "status": "Verified",
-          "otherDetails": ["South Indian Veg meals", "Minimum 5 days package"]
+          "otherDetails": ["South Indian Veg meals.", "Minimum 5 days package."]
         },
         {
           "name": "Krupa Dave",
@@ -130,6 +130,7 @@
           "location": "Bangalore",
           "providerType": "Home Chef",
           "contact": "9916657432",
+          "alternateContacts": [],
           "serviceAreas": "In and around Indiranagar",
           "serviceHours": "Lunch/Dinner",
           "deliveryOption": "Dunzo/Porter",
@@ -143,6 +144,7 @@
           "location": "Bangalore",
           "providerType": "Home Chef",
           "contact": "8197730308",
+          "alternateContacts": [],
           "serviceAreas": "In and around BTM Layout",
           "serviceHours": "All Meals",
           "deliveryOption": "Direct",
@@ -156,14 +158,14 @@
           "location": "Bangalore",
           "providerType": "Home Chef",
           "contact": "8197730308",
+          "alternateContacts": [],
           "serviceAreas": "In and around Rajarajeswari nagar",
           "serviceHours": "Lunch/Dinner",
           "deliveryOption": "Dunzo/Porter",
           "cost": "80 per meal + delivery",
           "status": "Verified",
-          "otherDetails": ["Free if in financial trouble"]
+          "otherDetails": ["Free if in financial trouble."]
         }
-
       ]
     }
   ]

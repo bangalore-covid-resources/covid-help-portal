@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 
 import Home from "../components/main/home";
+import About from "../components/main/about";
 import NotFound from "../components/main/not-found";
 import HelpSummary from "../components/help/help-summary";
 import APPLICATION_URL from "../constants/application-routes";
@@ -25,6 +26,9 @@ const RouterConfig = () => (
       </Route>
       <Route path={APPLICATION_URL.MEALS}>
         <HelpSummary category={HELP_CATEGORY.MEALS} />
+      </Route>
+      <Route path={APPLICATION_URL.ABOUT}>
+        <About />
       </Route>
 
       <Route component={NotFound} />

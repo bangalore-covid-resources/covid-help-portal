@@ -5,6 +5,8 @@ const APPLICATION_URL = {
   PLASMA: "/plasma",
   REMDESIVIR: "/remdesivir",
   MEALS: "/meals",
+  ABOUT: "/about",
+
 };
 
 export default APPLICATION_URL;

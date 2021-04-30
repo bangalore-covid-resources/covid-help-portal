@@ -1,40 +1,75 @@
-import { Card, Container, Badge } from "react-bootstrap";
+import { Container, Badge, Row, Col, Image, Table } from "react-bootstrap";
+import { useHistory } from "react-router";
+import { MENUS } from "../../constants/constants";
+import APPLICATION_URL from "../../constants/application-routes";
 
 function Home() {
+  const history = useHistory();
+  const routeToHelp = (url) => {
+    history.push(url);
+  };
+
+  const renderHelpRow = (imgUrl, title, routeUrl) => {
+    return (
+      <tr onClick={() => routeToHelp(routeUrl)}>
+        <td>
+          <Image
+            src={imgUrl}
+            style={{ width: "90px", height: "90px" }}
+            className=" border-0"
+            thumbnail
+          />
+          <h2 className="d-inline ml-5 ">{title}</h2>
+        </td>
+      </tr>
+    );
+  };
+
   return (
-    <Container style={{ height: "50vh" }}>
-      <Card style={{ height: "80%", marginTop: "4%" }}>
-        <Card.Header className="text-white bg-info text-center">
-          This is an initiative by a like minded volunteers to help the people
-          affected by Covid
-        </Card.Header>
-        <Card.Body style={{ backgroundColor: "azure" }}>
-          <Card.Text>
-            <p></p>
-            <p>
-              People affected by Covid may need help like finding the Oxygen,
-              Ambulance, Plasma, Medicines etc. Most of the sources while
-              finding these details are not credible and an ample amount of time
-              is wasted before getting the right help. The time wasted in this
-              process may lead to critical situation.
-            </p>
-            <p>
-              This portal aims at reducing this time by providing the details of
-              the credible sources frequently verified by our team of
-              volunteers.
-            </p>
-            <p>
-              <span>
-                <Badge variant="danger">IMPORTANT</Badge>
-              </span>
-              <br />
-              Please do not panic and source the help unless it's absoutely
-              needed. This helps to reduce the burden on our Health care system
-              and make the help available to the absolutely needed.
-            </p>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+    <Container>
+      <Table bordered hover>
+        <tbody>
+          {renderHelpRow(
+            process.env.PUBLIC_URL + "/images/oxygen.jpg",
+            MENUS.OXYGEN,
+            APPLICATION_URL.OXYGEN
+          )}
+          {renderHelpRow(
+            process.env.PUBLIC_URL + "/images/medicine.jpg",
+            MENUS.REMDESIVIR,
+            APPLICATION_URL.REMDESIVIR
+          )}
+          {renderHelpRow(
+            process.env.PUBLIC_URL + "/images/ambulance.jpg",
+            MENUS.AMBULANCE,
+            APPLICATION_URL.AMBULANCE
+          )}
+          {renderHelpRow(
+            process.env.PUBLIC_URL + "/images/plasma.jpg",
+            MENUS.PLASMA,
+            APPLICATION_URL.PLASMA
+          )}
+          {renderHelpRow(
+            process.env.PUBLIC_URL + "/images/meals.jpg",
+            MENUS.MEALS,
+            APPLICATION_URL.MEALS
+          )}
+        </tbody>
+      </Table>
+
+      <Row className="mt-5">
+        <Col>
+          <p>
+            <span>
+              <Badge variant="danger">IMPORTANT</Badge>
+            </span>
+            <br />
+            Please do not panic and source the help unless it's absoutely
+            needed. This helps to reduce the burden on our Health care system
+            and make the help available to the absolutely needed.
+          </p>
+        </Col>
+      </Row>
     </Container>
   );
 }
