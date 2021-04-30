@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <RouteChangeTracker />;
+        <RouteChangeTracker />
         <RouterConfig />
         <Footer />
       </div>
