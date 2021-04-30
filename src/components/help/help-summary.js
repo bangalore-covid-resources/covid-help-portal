@@ -240,7 +240,7 @@ function HelpSummary(props) {
       ...new Set(providers.map((provider) => provider.providerType)),
     ];
     return (
-      <Row className="mb-5">
+      <Row className="mb-3">
         <Col md="1" className="mb-1">
           <Dropdown
             title="State"
@@ -280,7 +280,7 @@ function HelpSummary(props) {
   return (
     <Container fluid>
       <div
-        className="mb-5 mt-5 text-center border"
+        className="mb-3 mt-3 text-center border"
         style={{ backgroundColor: "azure", height: "5%" }}
       >
         <h1>

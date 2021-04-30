@@ -9,7 +9,7 @@ import APPLICATION_URL from "../constants/application-routes";
 import { HELP_CATEGORY } from "../constants/constants";
 
 const RouterConfig = () => (
-  <div className="mt-3 mb-5">
+  <div className="mt-3 mb-3">
     <Switch>
       <Route exact path={APPLICATION_URL.HOME} component={Home} />
       <Route path={APPLICATION_URL.OXYGEN}>

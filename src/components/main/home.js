@@ -15,7 +15,7 @@ function Home() {
         <td>
           <Image
             src={imgUrl}
-            style={{ width: "90px", height: "90px" }}
+            style={{ width: "80px", height: "80px" }}
             className=" border-0"
             thumbnail
           />
@@ -27,7 +27,7 @@ function Home() {
 
   return (
     <Container>
-      <Table bordered hover>
+      <Table bordered hover size="sm">
         <tbody>
           {renderHelpRow(
             process.env.PUBLIC_URL + "/images/oxygen.jpg",
@@ -64,7 +64,7 @@ function Home() {
               <Badge variant="danger">IMPORTANT</Badge>
             </span>
             <br />
-            Please do not panic and source the help unless it's absoutely
+            Please do not panic and source the help unless it is absolutely
             needed. This helps to reduce the burden on our Health care system
             and make the help available to the absolutely needed.
           </p>
