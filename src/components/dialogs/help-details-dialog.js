@@ -1,20 +1,21 @@
-import { Modal, Button } from "react-bootstrap";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography} from "@material-ui/core";
+
 import HelpDetails from "../help/help-details";
 
 function HelpDetailsDialog(props) {
   const { category, provider } = props;
   return (
-    <Modal {...props}>
-      <Modal.Header className="text-white bg-info text-center" closeButton>
-        <Modal.Title className="w-100">{provider.name}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+    <Dialog open={props.show} onClose={props.onHide} fullWidth aria-labelledby="form-dialog-title">
+      <DialogTitle id="form-dialog-title bg-light">{provider.name}</DialogTitle>
+      <DialogContent>
         <HelpDetails category={category} provider={provider} />
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={props.onHide} color="primary">
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }
 

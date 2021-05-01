@@ -1,5 +1,3 @@
-import { Row, Col, Container, Badge } from "react-bootstrap";
-
 import { HELP_CATEGORY, NOT_AVAILABLE } from "../../constants/constants";
 import helpers from "../../helpers/helpers";
 
@@ -8,126 +6,125 @@ function HelpDetails(props) {
 
   const renderDetailRow = (title, value) => {
     return (
-      <Row>
-        <Col>
-          <label className="font-weight-bold">{title}:</label>
-        </Col>
-        <Col>
-          <p>{helpers.getStringValue(value)}</p>
-        </Col>
-      </Row>
+      <div className="d-flex justify-content-between">
+        <span className="font-weight-bold">
+          {title}:
+        </span>
+        {title === "Contact" ?
+          <a style={{ color: "blue" }} href={"tel:+91" + helpers.getStringValue(value)}>
+            <u>{helpers.getStringValue(value)}</u>
+          </a>
+          :
+          <span className="text-black-50">{helpers.getStringValue(value)}</span>
+        }
+      </div>
     );
   };
 
   const renderDetailArrayRow = (title, value) => {
     return (
-      <Row>
-        <Col>
-          <label className="font-weight-bold">{title}:</label>
-        </Col>
-        <Col>
-          <p>
-            {value?.length === 0 && NOT_AVAILABLE}
-            {value?.length !== 0 &&
-              value?.map((v) => {
-                return (
-                  <div>
-                    {v}
-                    <br />
-                  </div>
-                );
-              })}
-          </p>
-        </Col>
-      </Row>
+      <>
+        <div className="d-flex justify-content-between">
+          <span className="font-weight-bold">
+            {title}:
+        </span>
+          <br />
+        </div>
+        <div>
+          {value?.length === 0 && <span className="text-black-50">{NOT_AVAILABLE}</span>}
+          {
+            value?.length !== 0 &&
+            value?.map((v) => {
+              return (
+                <div>
+                  <span className="text-black-50">{v}</span>
+                  <br />
+                </div>
+              );
+            })
+          }
+        </div>
+      </>
     );
-  };
-
+  }
   const renderStatusBadge = (status) => {
     return (
-      <Row>
-        <Col>
-          {" "}
-          <label className="font-weight-bold">Status:</label>
-        </Col>
-        <Col>
-          <Badge variant={helpers.getStatusBadgeVariant(status)}>
-            {status}
-          </Badge>
-        </Col>
-      </Row>
+      <div className="d-flex justify-content-between">
+        <span className="font-weight-bold">
+          Contact Status:
+      </span>
+        {helpers.getStatusBadgeVariant(status)}
+      </div>
     );
   };
 
   const renderOxygenDetails = () => {
     return (
-      <Container className="text-left">
+      <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
         {renderDetailRow("Location", provider.location)}
-        {renderDetailRow("Contact", provider.contact)}
-        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Address", provider.address)}
         {renderDetailRow("Deposit", provider.deposit)}
         {renderDetailRow("Charge", provider.charge)}
-        {renderDetailRow("Availability", provider.availability)}
         {renderDetailArrayRow("Other details", provider.otherDetails)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Contact", provider.contact)}
         {renderStatusBadge(provider.status)}
-      </Container>
+      </div>
     );
   };
 
   const renderAmbulanceDetails = () => {
     return (
-      <Container className="text-left">
+      <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
         {renderDetailRow("Location", provider.location)}
-        {renderDetailRow("Contact", provider.contact)}
         {renderDetailRow("Provider Type", provider.providerType)}
-        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Cost", provider.cost)}
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Contact", provider.contact)}
         {renderStatusBadge(provider.status)}
-      </Container>
+      </div>
     );
   };
 
   const renderPlasmaDetails = () => {
     return (
-      <Container className="text-left">
+      <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
         {renderDetailRow("Location", provider.location)}
-        {renderDetailRow("Contact", provider.contact)}
         {renderDetailRow("Blood Group", provider.bloodGroup)}
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
+        {renderDetailRow("Contact", provider.contact)}
         {renderStatusBadge(provider.status)}
-      </Container>
+      </div>
     );
   };
 
   const renderRemdesivirDetails = () => {
     return (
-      <Container className="text-left">
+      <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
         {renderDetailRow("Location", provider.location)}
-        {renderDetailRow("Contact", provider.contact)}
-        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
-        {renderDetailRow("Availability", provider.availability)}
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Contact", provider.contact)}
         {renderStatusBadge(provider.status)}
-      </Container>
+      </div>
     );
   };
 
   const renderMealsDetails = () => {
     return (
-      <Container className="text-left">
+      <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
         {renderDetailRow("Location", provider.location)}
-        {renderDetailRow("Contact", provider.contact)}
         {renderDetailRow("Provider Type", provider.providerType)}
         {renderDetailRow("Service Areas", provider.serviceAreas)}
         {renderDetailRow("Service Hours", provider.serviceHours)}
         {renderDetailRow("Delivery Option", provider.deliveryOption)}
         {renderDetailRow("Cost", provider.cost)}
-        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
+        {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
+        {renderDetailRow("Contact", provider.contact)}
         {renderStatusBadge(provider.status)}
-      </Container>
+      </div>
     );
   };
 
