@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Card, Button, Row, Col, Container, Badge } from "react-bootstrap";
+import { Card, Paper, Button, Box, Grid, Fab, Tooltip } from "@material-ui/core";
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 import Dropdown from "../custom/dropdown";
 
@@ -77,152 +78,158 @@ function HelpSummary(props) {
 
   const renderDetailRow = (title, value) => {
     return (
-      <Row>
-        <Col>
-          <label className="font-weight-bold">{title}:</label>
-        </Col>
-        <Col>
-          <p>{helpers.getStringValue(value)}</p>
-        </Col>
-      </Row>
+      <div className="d-flex justify-content-between">
+        <span className="font-weight-bold">
+          {title}:
+        </span>
+        {title === "Contact" ?
+          <a style={{ color: "blue" }} href={"tel:+91" + helpers.getStringValue(value)}>
+            <u>{helpers.getStringValue(value)}</u>
+          </a>
+          :
+          <span className="text-black-50">{helpers.getStringValue(value)}</span>
+        }
+      </div>
     );
   };
 
   const renderStatusBadge = (status) => {
     return (
-      <Row>
-        <Col>
-          {" "}
-          <label className="font-weight-bold">Status:</label>
-        </Col>
-        <Col>
-          <Badge variant={helpers.getStatusBadgeVariant(status)}>
-            {status}
-          </Badge>
-        </Col>
-      </Row>
+      <div className="d-flex justify-content-between">
+        <span className="font-weight-bold">
+          Contact Status:
+      </span>
+        {helpers.getStatusBadgeVariant(status)}
+      </div>
     );
   };
 
   const renderViewDetailsButton = (provider) => {
     return (
       <Button
-        className="float-right"
-        size="sm"
-        variant="primary"
+        variant="outlined"
+        color="secondary"
+        className="text-uppercase w-100 font-size-xs"
         onClick={() => {
           setSelectedProvider(provider);
           setHelpDetailsShow(true);
-        }}
-      >
-        View details
+        }}>
+        <small className="font-weight-bold">View Details</small>
       </Button>
     );
   };
 
   const renderOxygenProvider = (provider) => {
     return (
-      <Container className="text-left" style={{ flexBasis: "25%" }}>
-        <Card className="mb-3" style={{ maxWidth: "400px" }}>
-          <Card.Header className="text-white bg-info text-center">
-            {provider.name}
-          </Card.Header>
-          <Card.Body style={{ backgroundColor: "azure" }}>
-            <Card.Text>
-              {renderDetailRow("Location", provider.location)}
-              {renderDetailRow("Contact", provider.contact)}
-              {renderDetailRow("Availability", provider.availability)}
-              {renderStatusBadge(provider.status)}
-            </Card.Text>
-            {renderViewDetailsButton(provider)}
-          </Card.Body>
+      <Grid key={provider.name} item xs={12} md={6} lg={4}>
+        <Card className="card-box mb-4 p-4">
+          <div className="d-flex align-items-center mb-3">
+            <div className="w-100">
+              <a href="#/" onClick={e => e.preventDefault()} className="font-weight-bold font-size-lg" title="...">
+                {provider.name}
+              </a>
+            </div>
+          </div>
+          <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
+            {renderDetailRow("Location", provider.location)}
+            {renderDetailRow("Contact", provider.contact)}
+            {renderStatusBadge(provider.status)}
+          </div>
+          {renderViewDetailsButton(provider)}
         </Card>
-      </Container>
+      </Grid>
     );
   };
 
   const renderAmbulanceProvider = (provider) => {
     return (
-      <Container className="text-left" style={{ flexBasis: "25%" }}>
-        <Card className="mb-3" style={{ maxWidth: "400px" }}>
-          <Card.Header className="text-white bg-info text-center">
-            {provider.name}
-          </Card.Header>
-          <Card.Body style={{ backgroundColor: "azure" }}>
-            <Card.Text>
-              {renderDetailRow("Location", provider.location)}
-              {renderDetailRow("Contact", provider.contact)}
-              {renderDetailRow("Provider Type", provider.providerType)}
-              {renderStatusBadge(provider.status)}
-            </Card.Text>
-            {renderViewDetailsButton(provider)}
-          </Card.Body>
+      <Grid item xs={12} md={6} lg={4}>
+        <Card className="card-box mb-4 p-4">
+          <div className="d-flex align-items-center mb-3">
+            <div className="w-100">
+              <a href="#/" onClick={e => e.preventDefault()} className="font-weight-bold font-size-lg" title="...">
+                {provider.name}
+              </a>
+            </div>
+          </div>
+          <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
+            {renderDetailRow("Location", provider.location)}
+            {renderDetailRow("Provider Type", provider.providerType)}
+            {renderDetailRow("Contact", provider.contact)}
+            {renderStatusBadge(provider.status)}
+          </div>
+          {renderViewDetailsButton(provider)}
         </Card>
-      </Container>
+      </Grid>
     );
   };
 
   const renderPlasmaProvider = (provider) => {
     return (
-      <Container className="text-left" style={{ flexBasis: "25%" }}>
-        <Card className="mb-3" style={{ maxWidth: "400px" }}>
-          <Card.Header className="text-white bg-info text-center">
-            {provider.name}
-          </Card.Header>
-          <Card.Body style={{ backgroundColor: "azure" }}>
-            <Card.Text>
-              {renderDetailRow("Location", provider.location)}
-              {renderDetailRow("Contact", provider.contact)}
-              {renderDetailRow("Blood Group", provider.bloodGroup)}
-              {renderStatusBadge(provider.status)}
-            </Card.Text>
-            {renderViewDetailsButton(provider)}
-          </Card.Body>
+      <Grid item xs={12} md={6} lg={4}>
+        <Card className="card-box mb-4 p-4">
+          <div className="d-flex align-items-center mb-3">
+            <div className="w-100">
+              <a href="#/" onClick={e => e.preventDefault()} className="font-weight-bold font-size-lg" title="...">
+                {provider.name}
+              </a>
+            </div>
+          </div>
+          <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
+            {renderDetailRow("Location", provider.location)}
+            {renderDetailRow("Blood Group", provider.bloodGroup)}
+            {renderDetailRow("Contact", provider.contact)}
+            {renderStatusBadge(provider.status)}
+          </div>
+          {renderViewDetailsButton(provider)}
         </Card>
-      </Container>
+      </Grid>
     );
   };
 
   const renderRemdesivirProvider = (provider) => {
     return (
-      <Container className="text-left" style={{ flexBasis: "25%" }}>
-        <Card className="mb-3" style={{ maxWidth: "400px" }}>
-          <Card.Header className="text-white bg-info text-center">
-            {provider.name}
-          </Card.Header>
-          <Card.Body style={{ backgroundColor: "azure" }}>
-            <Card.Text>
-              {renderDetailRow("Location", provider.location)}
-              {renderDetailRow("Contact", provider.contact)}
-              {renderDetailRow("Availability", provider.availability)}
-              {renderStatusBadge(provider.status)}
-            </Card.Text>
-            {renderViewDetailsButton(provider)}
-          </Card.Body>
+      <Grid item xs={12} md={6} lg={4}>
+        <Card className="card-box mb-4 p-4">
+          <div className="d-flex align-items-center mb-3">
+            <div className="w-100">
+              <a href="#/" onClick={e => e.preventDefault()} className="font-weight-bold font-size-lg" title="...">
+                {provider.name}
+              </a>
+            </div>
+          </div>
+          <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
+            {renderDetailRow("Location", provider.location)}
+            {renderDetailRow("Contact", provider.contact)}
+            {renderStatusBadge(provider.status)}
+          </div>
+          {renderViewDetailsButton(provider)}
         </Card>
-      </Container>
+      </Grid>
     );
   };
 
   const renderMealsProvider = (provider) => {
     return (
-      <Container className="text-left" style={{ flexBasis: "25%" }}>
-        <Card className="mb-3" style={{ maxWidth: "400px" }}>
-          <Card.Header className="text-white bg-info text-center">
-            {provider.name}
-          </Card.Header>
-          <Card.Body style={{ backgroundColor: "azure" }}>
-            <Card.Text>
-              {renderDetailRow("Location", provider.location)}
-              {renderDetailRow("Contact", provider.contact)}
-              {renderDetailRow("Provider Type", provider.providerType)}
-              {renderDetailRow("Service Hours", provider.serviceHours)}
-              {renderStatusBadge(provider.status)}
-            </Card.Text>
-            {renderViewDetailsButton(provider)}
-          </Card.Body>
+      <Grid item xs={12} md={6} lg={4}>
+        <Card className="card-box mb-4 p-4">
+          <div className="d-flex align-items-center mb-3">
+            <div className="w-100">
+              <a href="#/" onClick={e => e.preventDefault()} className="font-weight-bold font-size-lg" title="...">
+                {provider.name}
+              </a>
+            </div>
+          </div>
+          <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
+            {renderDetailRow("Location", provider.location)}
+            {renderDetailRow("Provider Type", provider.providerType)}
+            {renderDetailRow("Service Hours", provider.serviceHours)}
+            {renderDetailRow("Contact", provider.contact)}
+            {renderStatusBadge(provider.status)}
+          </div>
+          {renderViewDetailsButton(provider)}
         </Card>
-      </Container>
+      </Grid>
     );
   };
 
@@ -240,55 +247,66 @@ function HelpSummary(props) {
       ...new Set(providers.map((provider) => provider.providerType)),
     ];
     return (
-      <Row className="mb-3">
-        <Col md="1" className="mb-1">
+      <Grid container spacing={2} className="mb-2">
+        <Grid item xs={12} md={6} lg={4}>
           <Dropdown
             title="State"
             items={uniqueStates}
             setSelected={setSelectedState}
           />
-        </Col>
-        <Col md="1" className="mb-1">
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
           <Dropdown
             title="City"
             items={uniqueLocations}
             setSelected={setSelectedLocation}
           />
-        </Col>
-        {category === HELP_CATEGORY.PLASMA && (
-          <Col md="1" className="mb-1">
+        </Grid>
+        { category === HELP_CATEGORY.PLASMA && (
+          <Grid item xs={12} md={6} lg={4}>
             <Dropdown
               title="Blood Group"
               items={uniqueBloodGroups}
               setSelected={setSelectedBloodGroup}
             />
-          </Col>
+          </Grid>
         )}
         {category === HELP_CATEGORY.MEALS && (
-          <Col>
+          <Grid item xs={12} md={6} lg={4}>
             <Dropdown
               title="Provider Type"
               items={uniqueProviderTypes}
               setSelected={setSelectedProviderType}
             />
-          </Col>
+          </Grid>
         )}
-      </Row>
+      </Grid>
     );
   };
 
   return (
-    <Container fluid>
-      <div
-        className="mb-3 mt-3 text-center border"
-        style={{ backgroundColor: "azure", height: "5%" }}
-      >
-        <h1>
-          {category.charAt(0).toUpperCase() + category.slice(1)} Providers
-        </h1>
-      </div>
+    <>
+      <Paper
+        square
+        elevation={6}
+        className="app-page-title app-page-title-alt-1">
+        <div>
+          <Box className="app-page-title--first mx-2">
+            <div className="app-page-title--heading">
+              <h1>{category.charAt(0).toUpperCase() + category.slice(1)} Providers</h1>
+            </div>
+          </Box>
+        </div>
+        <div>
+          <Tooltip title="Back to home">
+            <Fab color="secondary" href="/">
+              <ChevronLeftIcon fontSize="large" />
+            </Fab>
+          </Tooltip>
+        </div>
+      </Paper>
       {renderFilters()}
-      <div className="d-flex flex-wrap">
+      <Grid container spacing={2} >
         {category === HELP_CATEGORY.OXYGEN &&
           filteredProviders.map((provider) => renderOxygenProvider(provider))}
         {category === HELP_CATEGORY.AMBULANCE &&
@@ -303,14 +321,14 @@ function HelpSummary(props) {
           )}
         {category === HELP_CATEGORY.MEALS &&
           filteredProviders.map((provider) => renderMealsProvider(provider))}
-      </div>
+      </Grid>
       <HelpDetailsDialog
         category={category}
         provider={selectedProvider}
         show={helpDetailsShow}
         onHide={() => setHelpDetailsShow(false)}
       />
-    </Container>
+    </>
   );
 }
 
