@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button } from "@material-ui/core";
 import { useHistory } from "react-router";
 import APPLICATION_URL from "../../constants/application-routes";
 
@@ -14,19 +14,19 @@ function Footer() {
   };
 
   return (
-    <div className="jumbotron mb-0 fixed-bottom text-center p-2">
-      <Button variant="link" onClick={() => setShowDisclaimer(true)}>
+    <div className="bg-light mb-0 fixed-bottom text-center p-2">
+      <Button variant="text" onClick={() => setShowDisclaimer(true)}>
         Disclaimer
       </Button>
       <Button
-        variant="link"
+        variant="text"
         onClick={() =>
           window.open("https://forms.gle/kVkmRjpf5G1KmaZn6", "_blank")
         }
       >
         Feedback
       </Button>
-      <Button variant="link" onClick={() => routeToAboutUs()}>
+      <Button variant="text" onClick={() => routeToAboutUs()}>
         About Us
       </Button>
       <DisclaimerDialog

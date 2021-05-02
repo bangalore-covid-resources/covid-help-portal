@@ -9,16 +9,16 @@ const helpers = {
     let variant = "";
     switch (status) {
       case PROVIDER_STATUS.UNVERIFIED:
-        variant = "danger";
+        variant = <span className="m-1 badge badge-warning">Unverified</span>;
         break;
       case PROVIDER_STATUS.VERIFIED:
-        variant = "success";
+        variant = <span className="m-1 badge badge-success">Verified</span>;
         break;
       case PROVIDER_STATUS.INPROGRESS:
-        variant = "warning";
+        variant = <span className="m-1 badge badge-warning">In Progress</span>;
         break;
       default:
-        variant = "danger";
+        variant = <span className="m-1 badge badge-danger">Potential fraud</span>;
         break;
     }
     return variant;
