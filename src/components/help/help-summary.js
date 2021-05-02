@@ -4,11 +4,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 import Dropdown from "../custom/dropdown";
 
-import * as Oxygen from "../../content/data/oxygen.json";
-import * as Ambulance from "../../content/data/ambulance.json";
-import * as Plasma from "../../content/data/plasma.json";
-import * as Medicines from "../../content/data/medicines.json";
-import * as Others from "../../content/data/others.json";
+import useOxygenData from "../../services/useOxygenData";
+import useAmbulanceData from "../../services/useAmbulanceData";
+import usePlasmaData from "../../services/usePlasmaData";
+import useMedicineData from "../../services/useMedicineData";
+import useMealsData from "../../services/useMealsData";
 
 import {
   HELP_CATEGORY,
@@ -19,6 +19,11 @@ import helpers from "../../helpers/helpers";
 import HelpDetailsDialog from "../dialogs/help-details-dialog";
 
 function HelpSummary(props) {
+  const [ambulanceProviders] = useAmbulanceData();
+  const [oxygenProviders] = useOxygenData();
+  const [medicineProviders] = useMedicineData();
+  const [plasmaProviders] = usePlasmaData();
+  const [mealsProviders] = useMealsData();
   const [providers, setProviders] = useState([]);
   const [selectedProvider, setSelectedProvider] = useState({});
   const [selectedState, setSelectedState] = useState("");
@@ -26,51 +31,58 @@ function HelpSummary(props) {
   const [selectedBloodGroup, setSelectedBloodGroup] = useState("");
   const [selectedProviderType, setSelectedProviderType] = useState("");
   const [helpDetailsShow, setHelpDetailsShow] = useState(false);
+  const [filteredProviders, setFilteredProviders] = useState(false);
   const { category } = props;
 
   useEffect(() => {
-    loadHelpProviders();
-  });
+    if (ambulanceProviders || oxygenProviders || medicineProviders || plasmaProviders || mealsProviders) {
+      loadHelpProviders();
+    }
+  }, [ambulanceProviders, oxygenProviders, medicineProviders, plasmaProviders, mealsProviders]);
 
-  const filteredProviders = providers.filter((item) => {
-    let filterMatched = true;
-    if (selectedState) {
-      filterMatched = item.state === selectedState;
+  useEffect(() => {
+    if (providers) {
+      const filteredArray = providers.filter((item) => {
+        let filterMatched = true;
+        if (selectedState) {
+          filterMatched = item.state === selectedState;
+        }
+        if (filterMatched && selectedLocation) {
+          filterMatched = item.location === selectedLocation;
+        }
+        if (filterMatched && selectedBloodGroup) {
+          filterMatched = item.bloodGroup === selectedBloodGroup;
+        }
+        if (filterMatched && selectedProviderType) {
+          filterMatched = item.providerType === selectedProviderType;
+        }
+        return filterMatched;
+      });
+      setFilteredProviders(filteredArray)
     }
-    if (filterMatched && selectedLocation) {
-      filterMatched = item.location === selectedLocation;
-    }
-    if (filterMatched && selectedBloodGroup) {
-      filterMatched = item.bloodGroup === selectedBloodGroup;
-    }
-    if (filterMatched && selectedProviderType) {
-      filterMatched = item.providerType === selectedProviderType;
-    }
-    return filterMatched;
-  });
+  }, [providers, selectedState, selectedLocation])
 
   const loadHelpProviders = () => {
     switch (category) {
       case HELP_CATEGORY.OXYGEN:
-        setProviders(Oxygen.providers);
+        setProviders(oxygenProviders);
         break;
       case HELP_CATEGORY.AMBULANCE:
-        setProviders(Ambulance.providers);
+        setProviders(ambulanceProviders);
         break;
       case HELP_CATEGORY.PLASMA:
-        setProviders(Plasma.providers);
+        setProviders(plasmaProviders);
         break;
       case HELP_CATEGORY.REMDESIVIR:
-        const remdesivir = Medicines.medicines.find(
-          (m) => m.name === MEDICINES.REMDESIVIR
-        );
-        setProviders(remdesivir.providers);
+        if (medicineProviders) {
+          const remdesivir = medicineProviders.find(
+            (m) => m.name === MEDICINES.REMDESIVIR
+          );
+          setProviders(medicineProviders);
+        }
         break;
       case HELP_CATEGORY.MEALS:
-        const meals = Others.helpCategories.find(
-          (m) => m.name === OTHER_HELP.MEALS
-        );
-        setProviders(meals.providers);
+        setProviders(mealsProviders);
         break;
       default:
     }
@@ -133,7 +145,7 @@ function HelpSummary(props) {
           <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
             {renderDetailRow("Location", provider.location)}
             {renderDetailRow("Contact", provider.contact)}
-            {renderStatusBadge(provider.status)}
+            {renderStatusBadge(provider.contactStatus)}
           </div>
           {renderViewDetailsButton(provider)}
         </Card>
@@ -156,7 +168,7 @@ function HelpSummary(props) {
             {renderDetailRow("Location", provider.location)}
             {renderDetailRow("Provider Type", provider.providerType)}
             {renderDetailRow("Contact", provider.contact)}
-            {renderStatusBadge(provider.status)}
+            {renderStatusBadge(provider.contactStatus)}
           </div>
           {renderViewDetailsButton(provider)}
         </Card>
@@ -179,7 +191,7 @@ function HelpSummary(props) {
             {renderDetailRow("Location", provider.location)}
             {renderDetailRow("Blood Group", provider.bloodGroup)}
             {renderDetailRow("Contact", provider.contact)}
-            {renderStatusBadge(provider.status)}
+            {renderStatusBadge(provider.contactStatus)}
           </div>
           {renderViewDetailsButton(provider)}
         </Card>
@@ -201,7 +213,7 @@ function HelpSummary(props) {
           <div className="my-4 font-size-sm p-3 bg-secondary rounded-sm">
             {renderDetailRow("Location", provider.location)}
             {renderDetailRow("Contact", provider.contact)}
-            {renderStatusBadge(provider.status)}
+            {renderStatusBadge(provider.contactStatus)}
           </div>
           {renderViewDetailsButton(provider)}
         </Card>
@@ -225,7 +237,7 @@ function HelpSummary(props) {
             {renderDetailRow("Provider Type", provider.providerType)}
             {renderDetailRow("Service Hours", provider.serviceHours)}
             {renderDetailRow("Contact", provider.contact)}
-            {renderStatusBadge(provider.status)}
+            {renderStatusBadge(provider.contactStatus)}
           </div>
           {renderViewDetailsButton(provider)}
         </Card>
@@ -305,22 +317,22 @@ function HelpSummary(props) {
           </Tooltip>
         </div>
       </Paper>
-      {renderFilters()}
+      {providers && renderFilters()}
       <Grid container spacing={2} >
         {category === HELP_CATEGORY.OXYGEN &&
-          filteredProviders.map((provider) => renderOxygenProvider(provider))}
-        {category === HELP_CATEGORY.AMBULANCE &&
-          filteredProviders.map((provider) =>
+          filteredProviders && filteredProviders.map((provider) => renderOxygenProvider(provider))}
+        {category === HELP_CATEGORY.AMBULANCE && ambulanceProviders &&
+          filteredProviders && filteredProviders.map((provider) =>
             renderAmbulanceProvider(provider)
           )}
         {category === HELP_CATEGORY.PLASMA &&
-          filteredProviders.map((provider) => renderPlasmaProvider(provider))}
+          filteredProviders && filteredProviders.map((provider) => renderPlasmaProvider(provider))}
         {category === HELP_CATEGORY.REMDESIVIR &&
-          filteredProviders.map((provider) =>
+          filteredProviders && filteredProviders.map((provider) =>
             renderRemdesivirProvider(provider)
           )}
         {category === HELP_CATEGORY.MEALS &&
-          filteredProviders.map((provider) => renderMealsProvider(provider))}
+          filteredProviders && filteredProviders.map((provider) => renderMealsProvider(provider))}
       </Grid>
       <HelpDetailsDialog
         category={category}

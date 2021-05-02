@@ -6,33 +6,10 @@ function Dropdown(props) {
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
-    props.setSelected(event.target.text);
+    props.setSelected(event.target.value);
   };
 
   return (
-    // <BootstrapDropdown>
-    //   <BootstrapDropdown.Toggle
-    //     variant="info"
-    //     id="dropdown"
-    //     style={{ minWidth: "100px" }}
-    //   >
-    //     <span>{props.title}</span>
-    //   </BootstrapDropdown.Toggle>
-
-    //   <BootstrapDropdown.Menu>
-    //     {props.items.map((name, index) => (
-    //       <BootstrapDropdown.Item
-    //         key={index}
-    //         onClick={(event) => {
-    //           props.setSelected(event.target.text);
-    //         }}
-    //         value={name}
-    //       >
-    //         {name}
-    //       </BootstrapDropdown.Item>
-    //     ))}
-    //   </BootstrapDropdown.Menu>
-    // </BootstrapDropdown>
     <FormControl style={{ minWidth: "100%"}}>
       <InputLabel id="dd-select-label">{props.title}</InputLabel>
       <Select

@@ -6,6 +6,7 @@ function HelpDetails(props) {
 
   const renderDetailRow = (title, value) => {
     return (
+      <>
       <div className="d-flex justify-content-between">
         <span className="font-weight-bold">
           {title}:
@@ -15,9 +16,11 @@ function HelpDetails(props) {
             <u>{helpers.getStringValue(value)}</u>
           </a>
           :
-          <span className="text-black-50">{helpers.getStringValue(value)}</span>
+          <span className="text-black-50 text-right">{helpers.getStringValue(value)}</span>
         }
       </div>
+      <br/>
+      </>
     );
   };
 
@@ -44,6 +47,7 @@ function HelpDetails(props) {
             })
           }
         </div>
+        <br/>
       </>
     );
   }
@@ -68,7 +72,7 @@ function HelpDetails(props) {
         {renderDetailArrayRow("Other details", provider.otherDetails)}
         {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Contact", provider.contact)}
-        {renderStatusBadge(provider.status)}
+        {renderStatusBadge(provider.contactStatus)}
       </div>
     );
   };
@@ -82,7 +86,7 @@ function HelpDetails(props) {
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Contact", provider.contact)}
-        {renderStatusBadge(provider.status)}
+        {renderStatusBadge(provider.contactStatus)}
       </div>
     );
   };
@@ -94,7 +98,7 @@ function HelpDetails(props) {
         {renderDetailRow("Blood Group", provider.bloodGroup)}
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderDetailRow("Contact", provider.contact)}
-        {renderStatusBadge(provider.status)}
+        {renderStatusBadge(provider.contactStatus)}
       </div>
     );
   };
@@ -106,7 +110,7 @@ function HelpDetails(props) {
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Contact", provider.contact)}
-        {renderStatusBadge(provider.status)}
+        {renderStatusBadge(provider.contactStatus)}
       </div>
     );
   };
@@ -123,7 +127,7 @@ function HelpDetails(props) {
         {renderDetailArrayRow("Other Details", provider.otherDetails)}
         {renderDetailArrayRow("Alternate Contacts", provider.alternateContacts)}
         {renderDetailRow("Contact", provider.contact)}
-        {renderStatusBadge(provider.status)}
+        {renderStatusBadge(provider.contactStatus)}
       </div>
     );
   };
