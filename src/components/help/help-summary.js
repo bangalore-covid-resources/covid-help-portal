@@ -60,7 +60,7 @@ function HelpSummary(props) {
       });
       setFilteredProviders(filteredArray)
     }
-  }, [providers, selectedState, selectedLocation])
+  }, [providers, selectedState, selectedLocation, selectedBloodGroup, selectedProviderType])
 
   const loadHelpProviders = () => {
     switch (category) {
